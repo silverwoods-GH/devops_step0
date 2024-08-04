@@ -19,7 +19,9 @@ jobs:
 
       # gradle build
       - name: Build with Gradle
-        run: ./gradlew build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew build
 
       # SSH key 권한 설정
       - name: Set SSH key permissions
@@ -35,7 +37,7 @@ jobs:
 
       - name: Add known_hosts
         run: |
-          echo "43.201.252.163 ssh-ed25519 |1|tt+YFfUNIIfN4wXWPg59sfmp4Eg=|h9Uky20cpKG9HkymjbVAI7/Yz/g= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJ9KCLmLK/IyXYAovrpyzcJ5PJ0EDaYG90DYYbJeoOFN/a3z1mfuM+keBzytbF198HAcN8alR0g1aCABE0QRPVI=" >> ~/.ssh/known_hosts
+          echo "43.201.252.163 ssh-ed25519 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJ9KCLmLK/IyXYAovrpyzcJ5PJ0EDaYG90DYYbJeoOFN/a3z1mfuM+keBzytbF198HAcN8alR0g1aCABE0QRPVI=" >> ~/.ssh/known_hosts
 
       - name: 기존프로세스 종료 
         run: |
