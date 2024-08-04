@@ -21,6 +21,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+      # SSH key 권한 설정
       - name: Set SSH key permissions
         run: |
           mkdir -p ~/.ssh
